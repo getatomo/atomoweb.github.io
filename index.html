@@ -28,11 +28,14 @@
 		font-family: 'Barlow Condensed';
 		font-size: 80pt;
 
-	} 
+	}
 	div.centered {
 		margin-left:auto;
 		margin-right:auto;
 		width:100%;
+	}
+	.mdl-grid {
+		justify-content: center;
 	}
 	.mdl-card__media {
 		background-color: white;
@@ -48,6 +51,9 @@
 	}
 	.mdl-mini-footer {
 		background-color: white;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	.mdl-logo {
 		color: #999999ff;
@@ -82,10 +88,13 @@
 	.mdl-cell, .mdl-card, .portfolio-card {
 		width: 338px;
 	}
+	.mdl-mini-footer__link-list {
+		justify-content: right;
+	}
 </style>
 </head>
 <body>
-<br/>
+<br/>t a
 <br/>
 <div style="display:flex; height:400px; align-items:center; justify-content:center">
 	<img src="images/WhiteBot.png" style="height:400px">
@@ -100,6 +109,7 @@
 		<br/>
 		<br/>
 		<br/>
+		<a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple mdl-color--blue-50" href="./video.html">Video</a>
 		<br/>
 		<br/>
 		<br/>
@@ -107,7 +117,7 @@
 </center>
 
 <main class="mdl-layout__content">
-	<div class="mdl-grid portfolio-max-width">
+	<div class="mdl-grid">
 		<div class="mdl-cell mdl-card mdl-shadow--3dp portfolio-card">
 			<div class="mdl-card__media">
 				<img class="article-image" src=" images/ryan.JPG" border="0" alt="">
@@ -165,18 +175,15 @@
 			</div>
 		</div>
 	</div>
-	<footer class="mdl-mini-footer">
+	<br/>
+</main>
+<footer class="mdl-mini-footer">
 		<div class="mdl-mini-footer__left-section">
 			<div class="mdl-logo">Copyright @2018 Atomo, Inc.</div>
 		</div>
 		<div class="mdl-mini-footer__right-section">
-			<ul class="mdl-mini-footer__link-list">
-				<li><a href="./jianyang.html">GIF</a></li>
-				<li><a href="./video.html">Video</a></li>
-			</ul>
 		</div>
 	</footer>
-</main>
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </body>
 </html>
