@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  </head>
+  <style>
+    a-scene {
+      height: 300px;
+      width: 600px;
+    }
+  </style>
+  <script>
+    /**function createBeacon(point, model) {
+      var object = "obj: #tree-obj; mtl: #tree-mtl";
+      var scale = "1 1 1";
+      scene = document.querySelector("a-scene");
+      eObject = document.createElement("a-entity");
+      eObject.setAttribute('obj-model', model);
+      eObject.setAttribute('position', point);
+      eObject.setAttribute('scale', scale);
+      scene.appendChild(eObject);
+    }*/
+  </script>
+  <body>
+    <div id="arframe">
+    <a-scene embedded background="color: 0#ECECEC">
+      <a-assets>
+        <a-asset-item id="hq" src="/images/EClinicModel.dae">
+        </a-asset-item>
+      </a-assets>
+      <a-entity collada-model="#hq" scale="2 2 2">
+        <a-sphere color="yellow" radius=".15" position="11.14 1 -5.5"></a-sphere>
+        <a-sphere color="yellow" radius=".15" position="11.14 1 -3.4"></a-sphere>
+      </a-entity>
+      <a-entity camera id="camera" position="0 3 3" rotation="-2.75 -1 0" look-controls wasd-controls>
+          <a-cursor position="1 -.1 -1"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		Atomo
+	</title>
+	<link rel="icon" type="image/ico" href="/octo.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:Extra-Light');
+	@import url('https://fonts.googleapis.com/css?family=Quicksand:Regular');
+	body {
+		background: linear-gradient(to bottom right, #073763ff, #0f77d8ff);
+		overflow: hidden;
+	}
+	h2 {
+		color: white;
+		margin-left: 40px;
+		font-family: 'Quicksand';
+		font-size: 40pt;
+
+	} 
+	div.centered {
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+	}
+	.mdl-mini-footer {
+		background-color: white;
+	}
+	.mdl-logo {
+		color: #999999ff;
+	}
+	footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+
+</style>
+</head>
+<body class="page">
+	<center>
+		<div id="container"></div>
+	</center>
+	<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+	<script src="js/three.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/ColladaLoader.js"></script>
+	<script src="js/OrbitControls.js"></script>
+	<script src="js/Detector.js"></script>
+	<script src="js/stats.min.js"></script>
+	<script>
+		if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container, controls, stats, clock;
+			var camera, scene, renderer, hq;
+
+			init();
+
+			function init() {
+
+				container = document.getElementById( 'container' );
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 850 );
+				camera.position.z = 10;
+				//camera.rotation.x = 90 * 3.14 / 180
+				scene = new THREE.Scene();
+
+				//var grid = new THREE.GridHelper(40,40);
+				//scene.add(grid);
+				// loading manager
+
+				var loadingManager = new THREE.LoadingManager( function() {
+
+					scene.add( hq );
+
+				} );
+
+				// collada
+
+				var loader = new THREE.ColladaLoader( loadingManager );
+				loader.load( '/images/EClinicModel.dae', function ( collada ) {
+
+					hq = collada.scene;
+
+				} );
+
+				//
+
+				var ambientLight = new THREE.AmbientLight( 0xcccccc, 0.4 );
+				scene.add( ambientLight );
+
+				var light = new THREE.HemisphereLight( 0xffeeee, 0x111122);
+				scene.add(light);
+
+				//
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setClearColor(0x00ceff);
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+
+				controls = new THREE.OrbitControls(camera, renderer.domElement);
+				controls.target.set(0,2,0);
+				controls.update();
+
+				//
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+				requestAnimationFrame(animate);
+				controls.update();
+				renderer.render(scene, camera);
+			}
+			animate();
+
+
+		// Function web gl render
+		/**var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+		var renderer = new THREE.WebGLRenderer();
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		document.body.appendChild( renderer.domElement );
+		var ColladaLoader = require('three-collada-loader');
+		var loader = new ColladaLoader();
+		loader.load('images/EClinicModel.dae');
+		camera.position.z = 5;
+		function animate() {
+			requestAnimationFrame(animate);
+			render.render(scene, camera);
+		}
+		animate();/
+
+	//main();
+	/*function main() {
+		const canvas = documnet.querySelector("#glCanvas");
+		const gl = canvas.getContext("webgl");
+		if (!gl) {
+			alert("Unable to load your map");
+			return;
+		}
+
+		gl.clearColor(0.0,0.0,0.0,1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT)
+	}*/
+</script>
+</body>
+<footer class="mdl-mini-footer">
+	<div class="mdl-mini-footer__left-section">
+		<div class="mdl-logo">Copyright @2018 Atomo, Inc.</div>
+	</div>
+	<div class="mdl-mini-footer__right-section">
+	</div>
+</footer>
+</html>

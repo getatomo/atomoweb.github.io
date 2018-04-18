@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		Atomo
+	</title>
+	<link rel="icon" type="image/ico" href="/octo.ico">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:Extra-Light');
+	@import url('https://fonts.googleapis.com/css?family=Quicksand:Regular');
+	body {
+		background: linear-gradient(to bottom right, #073763ff, #0f77d8ff);
+	}
+
+	h1 {
+		color: white;
+		margin-left: 40px;
+		font-family: 'Quicksand';
+		font-size: 40pt;
+		z-index: 2;
+
+	}
+	h2 {
+		color: white;
+		margin-left: 40px;
+		font-family: 'Barlow Condensed';
+		font-size: 80pt;
+
+	}
+	body {
+		justify-content: center;
+	}
+	div.centered {
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+	}
+	.mdl-layout__title {
+		font-family: 'Quicksand';
+		font-size: 30pt;
+		color: white;
+	}
+	.mdl-layout__content {
+		display:flex; align-items:center; justify-content:center;
+	}
+	.mdl-grid {
+		display:flex; align-items:center; justify-content:center;
+	}
+	.mdl-card__media {
+		background-color: white;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.mdl-card__title-text {
+		font-family: 'Quicksand';
+	}
+	.mdl-card__supporting-text {
+		font-family: 'Quicksand';
+	}
+	.mdl-button--icon, .material-icons {
+		color: white;
+	}
+	.mdl-mini-footer {
+		background-color: white;
+		display: block;
+		bottom: 0;
+		width: 100%;
+		height: 30px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.mdl-navigation__link {
+		font-family: 'Quicksand';
+	}
+	.mdl-layout__header {
+		opacity: 0.9;
+		color: black;
+	}
+	.mdl-logo {
+		color: #999999ff;
+	}
+	a-scene {
+      height:500px;
+      width: 100%;
+    }
+	.overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		transition: .5s ease;
+		background-color: #6fa8dcff;
+	}
+
+	.mdl-card__media:hover .overlay {
+		opacity: 0.7;
+	}
+
+	.text {
+		color: white;
+		font-size: 20px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		text-align: center;
+	}
+	.mdl-cell, .mdl-card, .portfolio-card {
+		width: 338px;
+	}
+	.mdl-mini-footer__link-list {
+		justify-content: right;
+	}
+</style>
+</head>
+<script>
+	function animate() {
+		element = document.querySelector("#building");
+		movement = document.createElement("a-animation");
+		movement.setAttribute("attribute", "position");
+		movement.setAttribute("from", "200 0 -400");
+		movement.setAttribute("to", "0 0 0");
+		movement.setAttribute("dur", "10000");
+		element.appendChild(movement);
+		element.setAttribute("visible", true);
+	}
+
+	function setInvisible() {
+		element = document.querySelector("#building");
+		element.setAttribute("visible",false);
+	}
+	window.onLoad = function(e) {
+		setInvisible();
+		setTimeout(animate, 3000);
+	}
+	
+</script>
+<body>
+<div class="mdl-layout mdl-js-layout">
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+   		<span class="mdl-layout__title">atomo</span>
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" name="sample"
+                 id="fixed-header-drawer-exp">
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">atomo</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">home</a>
+      <a class="mdl-navigation__link" href="">docs</a>
+      <a class="mdl-navigation__link" href="">founders</a>
+      <a class="mdl-navigation__link" href="">contact</a>
+    </nav>
+	</div>
+	</div>
+	<!--<div style="display:flex; height:50px; align-items:center; justify-content:center">
+	<img src="images/WhiteBot.png" style="height:55px; top: 5px; z-index: 2;">
+	<h1>
+		atomo        
+	</h1>
+</div>-->
+<br/>
+<div id="arframe">
+	<div style="display:flex; height:400px; position: relative; align-items:center; justify-content:center">
+    <a-scene embedded antialias="true">
+      <a-assets>
+        <a-asset-item id="hq" src="/images/EClinicModel.dae">
+        </a-asset-item>
+      </a-assets>
+      <a-entity id="building" collada-model="#hq" scale="2 2 2">
+        <a-sphere color="yellow" radius=".15" position="11.14 1 -5.5"></a-sphere>
+        <a-sphere color="yellow" radius=".15" position="11.14 1 -3.4"></a-sphere>
+      </a-entity>
+      <a-entity camera id="camera" position="0 3 3" rotation="-2.75 -1 0" look-controls wasd-controls>
+          <a-cursor position="1 -.1 -1"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </div>
+<main class="mdl-layout__content">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  	<div class="page-content">
+	<div class="mdl-grid">
+		<br/>
+		<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+			<div class="mdl-card__media">
+				<img class="article-image" src=" images/ryan.JPG" border="0" alt="">
+				<div class="overlay">
+					<div class="text">BS Mechanical Engineering</div>
+				</div>
+			</div>
+			<div class="mdl-card__title">
+				<h2 class="mdl-card__title-text">Ryan Kelley</h2>
+			</div>
+			<div class="mdl-card__supporting-text">
+				Chief Executive Officer
+			</div>
+		</div>
+		<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+			<div class="mdl-card__media">
+				<img class="article-image" src=" images/bryan.JPG" border="0" alt="">
+				<div class="overlay">
+					<div class="text">BS Computer Science</div>
+				</div>
+			</div>
+			<div class="mdl-card__title">
+				<h2 class="mdl-card__title-text">Bryan Cooper</h2>
+			</div>
+			<div class="mdl-card__supporting-text">
+				Chief Technology Officer
+			</div>
+		</div>
+		<div class="mdl-cell mdl-card aidan mdl-shadow--4dp portfolio-card">
+			<div class="mdl-card__media">
+				<img class="article-image" src=" images/aidan.JPG" border="0" alt="">
+				<div class="overlay">
+					<div class="text">BS Textile Technologies</div>
+				</div>
+			</div>
+			<div class="mdl-card__title">
+				<h2 class="mdl-card__title-text">Aidan Special</h2>
+			</div>
+			<div class="mdl-card__supporting-text">
+				Chief Product Officer
+			</div>
+		</div>
+	</div>
+</div>
+</main>
+<footer class="mdl-mini-footer">
+		<div class="mdl-mini-footer__left-section">
+			<div class="mdl-logo">Copyright @2018 Atomo, Inc.</div>
+		</div>
+		<div class="mdl-mini-footer__right-section">
+			<div class="mdl-logo">
+				<a href="hq.html">HQ</a>
+			</div>
+		</div>
+	</footer>
+</div>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+</html>
