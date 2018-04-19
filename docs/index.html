@@ -39,6 +39,19 @@
 		margin-right:auto;
 		width:100%;
 	}
+
+	#beaconbutton {
+		height: 80px;
+		width: 80px;
+		min-width: initial;
+		background-color: white;
+		opacity: 1;
+	}
+
+	#beaconimage {
+		color: black;
+	}
+
 	.mdl-layout__title {
 		font-family: 'Quicksand';
 		font-size: 30pt;
@@ -123,7 +136,21 @@
 	}
 </style>
 </head>
-<script>
+	<script>
+	var point;
+	AFRAME.registerComponent('cursor-listener', {
+    init: function () {
+      this.el.addEventListener('mouseenter', function (evt) {
+        //this.setAttribute('color','#ff0000');
+        //this.setAttribute('material','opacity:.85');
+          //point = getNewPos(evt);
+      });
+      this.el.addEventListener('mouseleave', function (evt) {
+        //this.setAttribute('color','rgb(' + getRandom() + ", " + (getRandom() + 150) + ", " +  (getRandom() + 60)+")");
+        //this.setAttribute('material','opacity:1');
+      });
+    }
+  })
 	function animate() {
 		element = document.querySelector("#building");
 		movement = document.createElement("a-animation");
@@ -133,6 +160,10 @@
 		movement.setAttribute("dur", "10000");
 		element.appendChild(movement);
 		element.setAttribute("visible", true);
+	}
+
+	function createBeacon(point) {
+		
 	}
 
 	function setInvisible() {
@@ -197,6 +228,10 @@
       </a-entity>
     </a-scene>
   </div>
+  <button onclick="createBeacon(point)" id="beaconbutton" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect">
+  <i id="beaconimage" class="material-icons">explore</i>
+</button>
+</div>
 <main class="mdl-layout__content">
   <br/>
   <br/>
