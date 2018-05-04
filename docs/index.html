@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		Atomo
+	</title>
+
+	<!-- Dependencies and metadata -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/ico" href="/images/robot.ico">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link href="https://fonts.googleapis.com/css?family=Muli:600i" rel="stylesheet">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/vendor.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+	<script src="js/modernizr.js" async></script>
+	<script src="js/pace.min.js"></script>
+
+	<!-- Inline CSS -->
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Barlow+Condensed:Extra-Light');
+	@import url('https://fonts.googleapis.com/css?family=Quicksand:Regular');
+	html, body {
+		margin: 0;
+	}
+	#demo{
+		background: linear-gradient(to bottom, #073763ff, #99D3DF);
+	}
+	#team {
+		background: linear-gradient(to bottom, #99D3DF, #ffffff);
+	}
+	.slogan {
+		justify-content: center;
+	}
+	#slogan-page {
+		display: flex; height: 100%; background: #99D3DF;
+	}
+	#product-spacer {
+		display: flex; height:100%; background: #99D3DF;
+	}
+	#product-block {
+		justify-content: center;
+	}
+	h2 {
+		color: white;
+		margin-left: 40px;
+		font-family: 'montserrat-light';
+		font-size: 60pt;
+		padding-top: 50px;
+	}
+	h3{
+		height: 100%;
+		color: white;
+		text-align: center;
+		justify-content: center;
+		font-family: 'Quicksand';
+		font-size: 50pt;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	h4{
+		font-family: "montserrat-regular", sans-serif;
+		font-size: 30pt;
+		text-align: center;
+	}
+	h5{
+		font-family: "montserrat-regular", sans-serif;
+	}
+
+	h6{
+		font-family: 'montserrat-light', sans-serif;
+		padding-top: 40px;
+		font-size: 30px;
+		color: #ffffff;
+		text-transform: lowercase;
+		letter-spacing: -.1rem;
+
+	}
+	/*Class Styling*/
+	.container{
+		border: 1px;
+	}
+	#contactform {
+		justify-content: center;
+		text-align: center;
+	}
+	.productbutton{
+		background-color: transparent;
+		color: white;
+		border: 2px solid #ffffff;
+		justify-content: center;
+		text-align: center;
+		padding-bottom: 30pt;
+	}
+	div.centered {
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+	}
+	.col-twelve {
+		justify-content: center;
+	}
+	.mdl-layout__title {
+		font-family: 'Quicksand';
+		font-size: 30pt;
+		color: white;
+	}
+	.mdl-layout__content {
+		display:flex; align-items:center; justify-content:center;
+	}
+	.mdl-grid {
+		display:flex; align-items:center; justify-content:center;
+	}
+	.mdl-card__media {
+		background-color: white;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.mdl-card__title-text {
+		font-family: 'Quicksand';
+	}
+	.mdl-card__supporting-text {
+		font-family: 'Quicksand';
+	}
+	.mdl-button--icon, .material-icons {
+		color: white;
+	}
+	.mdl-mini-footer {
+		background-color: white;
+		display: block;
+		bottom: 0;
+		width: 100%;
+		height: 30px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.mdl-navigation__link {
+		font-family: 'Quicksand';
+	}
+	.mdl-layout__header {
+		opacity: 0.9;
+		color: black;
+	}
+	.mdl-logo {
+		color: #999999ff;
+	}
+	a-scene {
+		height:500px;
+		width: 100%;
+	}
+	.overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		transition: .5s ease;
+		background-color: #6fa8dcff;
+	}
+	.mdl-card__media:hover .overlay {
+		opacity: 0.7;
+	}
+	.text {
+		color: white;
+		font-size: 20px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		text-align: center;
+	}
+	.mdl-cell, .mdl-card, .portfolio-card {
+		width: 338px;
+	}
+	.mdl-mini-footer__link-list {
+		justify-content: right;
+	}
+	.contact-container{
+		background:white;
+	}
+	.button-productbutton{
+		justify-content: center;
+		margin-right: auto;
+		margin-left: auto;
+	}
+	.row-input{
+		padding-top: 30px;
+		line-height: 2em;
+		margin-right: 38%;
+		margin-left: 35%;
+	}
+	.row-input input, textarea{
+		float: right;
+		justify-content: center;
+	}
+</style>
+</head>
+<body id="top">
+	<header id="header" class="row">   
+
+		<div class="header-logo">
+			<h6>atomo</h6>
+		</div>
+
+		<nav id="header-nav-wrap">
+			<ul class="header-main-nav">
+				<li class="current"><a class="smoothscroll"  href="#demo" title="Home">Home</a></li>
+				<li><a class="smoothscroll"  href="#about" title="Product">Product</a></li>
+				<li><a class="smoothscroll"  href="#team" title="Team">Team</a></li>
+				<li><a class="smoothscroll"  href="#Contact" title="Contact">Contact</a></li>	
+			</ul>
+
+			<a href="dev.html" title="sign-up" class="button button-primary cta">Docs</a>
+		</nav>
+
+		<a class="header-menu-toggle" href="#"><span>Menu</span></a>    	
+
+	</header>
+	<section id="demo" data-parallax="scroll">
+		<div id="arframe">
+			<div style="display:flex; height:100%; position: relative; align-items:center; justify-content:center">
+				<a-scene embedded antialias="true">
+					<a-assets>
+						<a-asset-item id="hq" src="/images/EClinicModel.dae">
+						</a-asset-item>
+						<a-asset-item id="bot" src="/images/TexturedAtomo.dae"></a-asset-item>
+					</a-assets>
+					<a-entity id="building" collada-model="#hq" rotation="0 75 0" scale="2 2 2">
+						<a-sphere color="yellow" radius=".15" position="11.14 1 -5.5"></a-sphere>
+						<a-sphere color="yellow" radius=".15" position="11.14 1 -3.4"></a-sphere>
+						<a-entity id="atomobot" collada-model="#bot" position="5 0 -4.5" rotation="0 45 0" scale=".12 .12 .12">
+						</a-entity>
+						<a-entity camera id="camera" position="1 2 1" look-controls wasd-controls></a-entity>
+						<!--<a-cursor position="1 -.1 -1"></a-cursor>-->
+					</a-entity>
+				</a-scene>
+			</div>
+			<!--<button onclick="createBeacon(point)" id="beaconbutton" class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect">
+				<i id="beaconimage" class="material-icons">explore</i>
+			</button>-->
+		</div>
+		<div>
+		<h3>Learn To Love Your Space</h3>
+		</br>
+		<a href="newsletter.html" title="sign-up" class="button button-primary cta">Join Our News Letter</a>
+	</section>
+	<section id="about">
+		<div class="row about-how">
+			<h1 class="intro-header" data-aos="fade-up">Why?</h1>
+			<div data-aos="fade-up" style="justify-content: center; text-align: center;">
+				<p>For our users, it is navigating to where they want to be and discovering new experiences around them.<br>For our customers, it is knowing how users interact with your space, and getting actionable insights on how to improve KPIs.<br>For us it’s facilitating meaningful, fulfilling interactions with a digital environment in the real world.<br><br><br></p>
+			</div> 
+			<h1 class="intro-header" data-aos="fade-up">What is Atomo?</h1>
+			<div data-aos="fade-up" style="justify-content: center; text-align: center;">
+				<p>Atomo is a spatial intelligence platform that achieves 1 meter indoor positioning accuracy with no hardware. All you need is the phone in your hand. Atomo allows for businesses to better understand how their customers interact with their spaces and provide them with Augmented Reality experiences they’ll love. Atomo also is a platform for mass market Augmented Reality experiences that are pinned to the physical world.<br><br></p>
+			</div>       
+			<div class="about-how-content" data-aos="fade-up">
+				<div class="about-how-steps block-1-2 block-tab-full group">
+
+					<div class="bgrid step" data-item="1">
+						<h4>SDK</h4>
+						<p>By requesting an access token, we provide you with the documentation to integrate our Software Development Kit (SDK) into your Android and iOS applications, giving you access to the full suite of spatial intelligence tools.<br><br>Our algorithmic building digitization pipeline can onboard your space, and your team, in minutes. Atomo provides you with user data with never before seen fidelity. we save time you and money by removing any need for hardware installation and upkeep, provide actionable insights on customers decision making habits, and accurate indoor pathfinding to products.<br><br>Contact us so we can show you how Atomo works your unique user journey.
+						</p> 
+					</div>
+
+					<div class="bgrid step" data-item="2">
+						<h4>Platform</h4>
+						<p>There is an estimated 133 billion dollar market for Augmented Reality (AR). The major technological limitation is that AR experiences are either locked onto a 2-D plane that doesn’t interact with the world around it, or requires expensive and bulky hardware to provide information about the space. Atomo platform provides AR developers an SDK to build AR experiences on top of our digitized indoor spaces that can be experienced anywhere. The only hardware you need is your phone. Atomo allows for the digital world and the physical to be truly intermeshed.<br><br>This allows developers and designers to focus on what they love; making experiences. Contact us for early access to the demo.
+						</p> 
+					</div>               
+				</div>          
+			</div>
+			<br><br>
+		</div>
+	</section>
+	<section id="team">
+		<br>
+		<h3>Meet The Team</h3>
+		<main class="mdl-layout__content">
+			<div class="page-content">
+				<div class="mdl-grid">
+					<br/>
+					<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+						<div class="mdl-card__media">
+							<img class="article-image" src=" images/ryan.JPG" border="0" alt="">
+							<div class="overlay">
+								<div class="text">BS Mechanical Engineering</div>
+							</div>
+						</div>
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Ryan Kelley</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							Chief Executive Officer
+						</div>
+					</div>
+					<div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+						<div class="mdl-card__media">
+							<img class="article-image" src=" images/bryan.JPG" border="0" alt="">
+							<div class="overlay">
+								<div class="text">BS Computer Science</div>
+							</div>
+						</div>
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Bryan Cooper</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							Chief Technology Officer
+						</div>
+					</div>
+					<div class="mdl-cell mdl-card aidan mdl-shadow--4dp portfolio-card">
+						<div class="mdl-card__media">
+							<img class="article-image" src=" images/aidan.JPG" border="0" alt="">
+							<div class="overlay">
+								<div class="text">BS Textile Technologies</div>
+							</div>
+						</div>
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Aidan Special</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							Chief Product Officer
+						</div>
+					</div>
+				</div>
+				<br/>
+				<br/>
+				<br/>
+			</div>
+		</main>
+	</section>
+
+	<section id="Contact" style="background:#ffffff;">
+		<form action="https://formspree.io/admin@getatomo.com" method="POST">
+		<div id="contactform">
+                <div>
+                    <h4>Contact Us</h4>
+                </div>
+                <div class="row-input">
+                    <label> Name: <input type="text"  placeholder="First Last"/></label>
+                </br>
+                </div>
+                <div class="row-input">
+                    <label>Email: <input type="email" name="email" placeholder="example@domain.com"/></label>
+                    </br>
+                </div>
+                <div class="row-input">
+                	<label>Message:
+                		<textarea name="message" placeholder ="What is on your mind?"></textarea>
+                	</label>
+                	</br>
+                <div class="submit_button">
+                </br>
+            	</br>
+                    <button class="submit" type="submit">Submit Form</button> 
+                </div>
+    </div>
+</form>
+		</section>
+		<div id="preloader"> 
+			<div id="loader"></div>
+		</div>  
+		<footer class="mdl-mini-footer">
+			<div class="mdl-mini-footer__left-section">
+				<div class="mdl-logo">Copyright @2018 Atomo, Inc.</div>
+			</div>
+			<div class="mdl-mini-footer__right-section">
+				<div id="go-top">
+					<a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up"></i></a>
+				</div>  
+			</div>
+		</footer>
+    <!-- Java Script
+    	================================================== -->
+    	<script src="/js/jquery-2.1.3.min.js"></script>
+    	<script src="/js/plugins.js"></script>
+    	<script src="/js/main.js"></script>
+    	<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    </body>
+    </html>
