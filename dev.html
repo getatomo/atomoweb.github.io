@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+		Atomo
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+	<link rel="icon" type="image/ico" href="/images/robot.ico">
+	<style>
+	html {
+		font-family: 'VT323', monospace;
+		background-color: #fffffc
+	}
+	html, body {
+		width: 100%;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+	}
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.centered-wrapper {
+		position: relative;
+		text-align: center;
+	}
+	.centered-wrapper:before {
+		content: "";
+		position: relative;
+		display: inline-block;
+		width: 0; height: 100%;
+		vertical-align: middle;
+	}
+	.centered-content {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.dev {
+		width: 200px;
+		height: 48px;
+		padding-bottom: 3.5px;
+	}
+	.bulldozer {
+		padding-top: 9px;
+		height: 60px;
+		width: 60px;
+		padding-right: 2px;
+	}
+	.robot {
+		padding-bottom: 12px;
+		height: 42px;
+		width: 53px;
+	}
+</style>
+</head>
+<body class="centered-wrapper">
+	<div class="centered-content">
+		<div class="header" style="text-align: center">
+			<img class="bulldozer" src="images/bulldozer.png"/>
+			<img class="dev" src="images/Dev.PNG"/>
+			<img class="robot" src="images/drone.png"/>
+		</div>
+		<br>
+		<br>
+		<div style="text-align: center">
+			<h3>Pardon our dust; we are still working on our documentation.<br> Drop us a line to request early access to the platfom. 💖</h3>
+			<br>
+			<a href="mailto:dev@getatomo.com">dev@getatomo.com</a>
+		</div>
+	</div>
+</body>
+</html>
